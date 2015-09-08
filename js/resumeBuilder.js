@@ -1,11 +1,11 @@
 var name = "Ashley Davison";
 var role = "Front-End Developer";
 
-var formattedName = HTMLheaderName.replace ("%data%" , name);
-$("#header").append(formattedName);
-
 var formattedRole = HTMLheaderRole.replace ("%data%", role);
-$("#header").append(formattedRole);
+$("#header").prepend(formattedRole);
+
+var formattedName = HTMLheaderName.replace ("%data%" , name);
+$("#header").prepend(formattedName);
 
 var bio = {
   "name" : "Ashley",
@@ -24,9 +24,10 @@ var bio = {
 //TODO fix alignment of bio info
 
 var formattedbioPicture = HTMLbioPic.replace("%data%" , bio.picture);
-$("#topContacts").append(formattedbioPicture);
+$("#header").append(formattedbioPicture);
 var formattedbioWelcome = HTMLwelcomeMsg.replace("%data%" , bio.welcome);
-$("#topContacts").append(formattedbioWelcome);
+$("#header").append(formattedbioWelcome);
+
 var formattedbioMobile = HTMLmobile.replace("%data%" , bio.contacts.mobile);
 $("#topContacts").append(formattedbioMobile);
 $("#footerContacts").append(formattedbioMobile);
@@ -127,10 +128,9 @@ function displayEducation () {
 displayEducation();
 
 function displayOnlineEducation () {
+  $("#education").append(HTMLonlineClasses);
   for (onlineCourse in education.onlineCourses) {
-// TODO fix online classes header
-//    $("#education").prepend(HTMLonlineClasses);
-//    $("#education").append(HTMLschoolStart);
+    $("#education").append(HTMLschoolStart);
     var formattedOnlineTitle = HTMLonlineTitle.replace("%data%" , education.onlineCourses[onlineCourse].title);
     var formattedOnlineSchool = HTMLonlineSchool.replace("%data%" , education.onlineCourses[onlineCourse].school);
     var formattedOnlineTitleOnlineSchool = formattedOnlineTitle + formattedOnlineSchool;
@@ -142,7 +142,6 @@ function displayOnlineEducation () {
   }
 }
 
-$("#education").append(HTMLonlineClasses);
 displayOnlineEducation();
 
 var work = {
