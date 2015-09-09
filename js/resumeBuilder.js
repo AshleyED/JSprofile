@@ -21,8 +21,6 @@ var bio = {
   "skills" : ["HTML" , "CSS" , "JavaScript" , "jQuery"]
 }
 
-//TODO fix alignment of bio info
-
 var formattedbioPicture = HTMLbioPic.replace("%data%" , bio.picture);
 $("#header").append(formattedbioPicture);
 var formattedbioWelcome = HTMLwelcomeMsg.replace("%data%" , bio.welcome);
@@ -32,6 +30,7 @@ var formattedbioMobile = HTMLmobile.replace("%data%" , bio.contacts.mobile);
 $("#topContacts").append(formattedbioMobile);
 $("#footerContacts").append(formattedbioMobile);
 var formattedbioEmail = HTMLemail.replace("%data%" , bio.contacts.email);
+var formattedbioEmail = formattedbioEmail.replace("%data%", bio.contacts.email);
 $("#topContacts").append(formattedbioEmail);
 $("#footerContacts").append(formattedbioEmail);
 var formattedbioGithub = HTMLgithub.replace("%data%" , bio.contacts.github);
@@ -84,25 +83,29 @@ var education = {
       "title": "Intro to HTML and CSS",
       "school": "Udacity",
       "dates": "2015",
-      "url": "https://www.udacity.com/course/viewer#!/c-ud304-nd/l-3342528615/m-3343838767"
+      "url": "https://www.udacity.com/course/viewer#!/c-ud304-nd/l-3342528615/m-3343838767",
+      "courseUrl": ["https://www.udacity.com"]
     },
     {
       "title": "Responsive Web Design Fundamentals",
       "school": "Udacity",
       "dates": "2015",
-      "url": "https://www.udacity.com/course/viewer#!/c-ud893-nd/l-3581758575/m-3575058641"
+      "url": "https://www.udacity.com/course/viewer#!/c-ud893-nd/l-3581758575/m-3575058641",
+      "courseUrl": ["https://www.udacity.com"]
     },
     {
       "title": "Responsive Images",
       "school": "Udacity",
       "dates": "2015",
-      "url": "https://www.udacity.com/course/viewer#!/c-ud882-nd/l-3574748851"
+      "url": "https://www.udacity.com/course/viewer#!/c-ud882-nd/l-3574748851",
+      "courseUrl": ["https://www.udacity.com"]
     },
     {
       "title": "JavaScript Basics",
       "school": "Udacity",
       "dates": "2015",
-      "url": "https://www.udacity.com/course/viewer#!/c-ud804"
+      "url": "https://www.udacity.com/course/viewer#!/c-ud804",
+      "courseUrl": ["https://www.udacity.com"]
     }
   ]
 }
@@ -113,6 +116,7 @@ function displayEducation () {
   for (school in education.schools) {
     $("#education").append(HTMLschoolStart);
     var formattedName = HTMLschoolName.replace("%data%" , education.schools[school].name);
+    var formattedName = formattedName.replace("#", education.schools[school].url);
     var formattedDegree = HTMLschoolDegree.replace("%data%" , education.schools[school].degree);
     var formattedNameDegree = formattedName + formattedDegree;
     $(".education-entry:last").append(formattedNameDegree);
@@ -132,6 +136,7 @@ function displayOnlineEducation () {
   for (onlineCourse in education.onlineCourses) {
     $("#education").append(HTMLschoolStart);
     var formattedOnlineTitle = HTMLonlineTitle.replace("%data%" , education.onlineCourses[onlineCourse].title);
+    var formattedOnlineTitle = formattedOnlineTitle.replace("#", education.onlineCourses[onlineCourse].url);
     var formattedOnlineSchool = HTMLonlineSchool.replace("%data%" , education.onlineCourses[onlineCourse].school);
     var formattedOnlineTitleOnlineSchool = formattedOnlineTitle + formattedOnlineSchool;
     $(".education-entry:last").append(formattedOnlineTitleOnlineSchool);
@@ -168,7 +173,7 @@ var work = {
       "dates": "2007-2009",
       "location": "Latham NY",
       "description": "Acted as After-School Instructor in non-profit agency",
-      "url": ["http://www.alginc.org/"]
+      "url": ["https://www.wildwood.edu/"]
     }
   ]
 }
@@ -177,12 +182,10 @@ function displayWork () {
   for (job in work.jobs) {
     $("#workExperience").append(HTMLworkStart);
     var formattedEmployer = HTMLworkEmployer.replace("%data%" , work.jobs[job].employer);
+    var formattedEmployer = formattedEmployer.replace("#", work.jobs[job].url);
     var formattedTitle = HTMLworkTitle.replace("%data%" , work.jobs[job].title);
-    //var formattedUrl = HTMLworkEmployer.replace("#" , work.jobs[job].url);
     var formattedEmployerTitle = formattedEmployer + formattedTitle;
     $(".work-entry:last").append(formattedEmployerTitle);
-    //var formattedUrl = HTMLworkEmployer.replace("#" , work.jobs[job].url);
-    //$(".work-entry:last").append(formattedUrl);
     var formattedDates = HTMLworkDates.replace("%data%" , work.jobs[job].dates);
     $(".work-entry:last").append(formattedDates);
     var formattedLocation = HTMLworkLocation.replace("%data%" , work.jobs[job].location);
@@ -194,47 +197,28 @@ function displayWork () {
 
 displayWork ();
 
-var formattedUrl = HTMLworkEmployer.replace("#" , work.jobs[job].url);
-
-/* Removed- do not wish to include at this time
-$("#main").append(internationalizeButton);
-
-function inName (name) {
-  name = name.trim().split(" ");
-  console.log(name);
-  names[1] = names[1].toUpperCase();
-  names[0] = names [0].slice(0,1).toUpperCase()+names[0].slice(1).toLowerCase();
-
-  return name[0] + " " + name[1];
-} */
-
-/*if (work.jobs.location.length > 0) {
-  $("#workExperience").append(HTMLworkLocation);
-  var formattedLocation = HTMLworkLocation.replace("%data%" , jobs.location);
-  $("#workExperience").append(formattedSkill);
-}
-*/
-
-
 var projects = {
   "projects": [
     {
       "title": "Project One",
       "dates": "2015",
-      "description": "This is Project One",
-      "images": ["http://placehold.it/150x150", "http://placehold.it/150x150", "http://placehold.it/150x150"]
+      "description": "This is my HTML/CSS Portfolio",
+      "images": ["http://placehold.it/150x150", "http://placehold.it/150x150", "http://placehold.it/150x150"],
+      "url": ["https://github.com/AshleyED/profile"]
     },
     {
       "title": "Project Two",
       "dates": "2015",
       "description": "This is Project Two",
-      "images": ["http://placehold.it/150x150", "http://placehold.it/150x150", "http://placehold.it/150x150"]
+      "images": ["http://placehold.it/150x150", "http://placehold.it/150x150", "http://placehold.it/150x150"],
+      "url": " " //TODO Project to be entered at a later date
     },
     {
       "title": "Project Three",
       "dates": "2015",
       "description": "This is Project Three",
-      "images": ["http://placehold.it/150x150", "http://placehold.it/150x150", "http://placehold.it/150x150"]
+      "images": ["http://placehold.it/150x150", "http://placehold.it/150x150", "http://placehold.it/150x150"],
+      "url": " " //TODO Project to be entered at a later date
     }
   ]
 }
@@ -244,6 +228,7 @@ function displayProjects () {
     $("#projects").append(HTMLprojectStart);
 
     var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
+    var formattedTitle = formattedTitle.replace("#", projects.projects[project].url);
     $(".project-entry:last").append(formattedTitle);
 
     var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
