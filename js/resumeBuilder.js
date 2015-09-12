@@ -1,12 +1,16 @@
-var name = "Ashley Davison";
-var role = "Front-End Developer";
+//Main header display
+function displayHeader () {
+  var name = "Ashley Davison";
+  var role = "Front-End Developer";
+  var formattedRole = HTMLheaderRole.replace ("%data%", role);
+  $("#header").prepend(formattedRole);
+  var formattedName = HTMLheaderName.replace ("%data%" , name);
+  $("#header").prepend(formattedName);
+}
 
-var formattedRole = HTMLheaderRole.replace ("%data%", role);
-$("#header").prepend(formattedRole);
+displayHeader ();
 
-var formattedName = HTMLheaderName.replace ("%data%" , name);
-$("#header").prepend(formattedName);
-
+//Bio and contact information display
 var bio = {
   "name" : "Ashley",
   "role" : "Developer",
@@ -16,28 +20,33 @@ var bio = {
     "mobile" : "(518) 847-7915",
     "email" : "ashley.e.davison@gmail.com",
     "github" : "AshleyED",
+    "githubProfile": ["https://github.com/AshleyED"],
     "location" : "Schenectady NY"
   },
   "skills" : ["HTML" , "CSS" , "JavaScript" , "jQuery"]
 }
 
-var formattedbioPicture = HTMLbioPic.replace("%data%" , bio.picture);
-$("#header").append(formattedbioPicture);
-var formattedbioWelcome = HTMLwelcomeMsg.replace("%data%" , bio.welcome);
-$("#header").append(formattedbioWelcome);
+function displayBio () {
+  var formattedbioPicture = HTMLbioPic.replace("%data%" , bio.picture);
+  $("#header").append(formattedbioPicture);
+  var formattedbioWelcome = HTMLwelcomeMsg.replace("%data%" , bio.welcome);
+  $("#header").append(formattedbioWelcome);
+  var formattedbioMobile = HTMLmobile.replace("%data%" , bio.contacts.mobile);
+  $("#topContacts").append(formattedbioMobile);
+  $("#footerContacts").append(formattedbioMobile);
+  var formattedbioEmail = HTMLemail.replace("%data%" , bio.contacts.email);
+  var formattedbioEmail = formattedbioEmail.replace("%data%", bio.contacts.email);
+  $("#topContacts").append(formattedbioEmail);
+  $("#footerContacts").append(formattedbioEmail);
+  var formattedbioGithub = HTMLgithub.replace("%data%" , bio.contacts.github);
+  var formattedbioGithub = formattedbioGithub.replace("#", bio.contacts.githubProfile);
+  $("#topContacts").append(formattedbioGithub);
+  $("#footerContacts").append(formattedbioGithub);
+  var formattedbioLocation = HTMLlocation.replace("%data%" , bio.contacts.location);
+  $("#topContacts").append(formattedbioLocation);
+}
 
-var formattedbioMobile = HTMLmobile.replace("%data%" , bio.contacts.mobile);
-$("#topContacts").append(formattedbioMobile);
-$("#footerContacts").append(formattedbioMobile);
-var formattedbioEmail = HTMLemail.replace("%data%" , bio.contacts.email);
-var formattedbioEmail = formattedbioEmail.replace("%data%", bio.contacts.email);
-$("#topContacts").append(formattedbioEmail);
-$("#footerContacts").append(formattedbioEmail);
-var formattedbioGithub = HTMLgithub.replace("%data%" , bio.contacts.github);
-$("#topContacts").append(formattedbioGithub);
-$("#footerContacts").append(formattedbioGithub);
-var formattedbioLocation = HTMLlocation.replace("%data%" , bio.contacts.location);
-$("#topContacts").append(formattedbioLocation);
+displayBio ();
 
 if (bio.skills.length > 0) {
   $("#header").append(HTMLskillsStart);
@@ -51,6 +60,7 @@ if (bio.skills.length > 0) {
   $("#skills").append(formattedSkill);
 }
 
+//Education information display
 var education = {
   "schools" : [
     {
@@ -73,7 +83,7 @@ var education = {
       "name": "Scotia-Glenville High School",
       "location": "Scotia NY",
       "degree": "Advanced Regents Diploma",
-      "major": "None",
+      "major": "Advanced Studies",
       "dates": "9/2001-1/2005",
       "url": "http://www.scotiaglenvilleschools.org/SrHS/SrHS_home.cfm"
     }
@@ -83,34 +93,28 @@ var education = {
       "title": "Intro to HTML and CSS",
       "school": "Udacity",
       "dates": "2015",
-      "url": "https://www.udacity.com/course/viewer#!/c-ud304-nd/l-3342528615/m-3343838767",
-      "courseUrl": ["https://www.udacity.com"]
+      "url": ["https://www.udacity.com/course/viewer#!/c-ud304-nd/l-3342528615/m-3343838767"]
     },
     {
       "title": "Responsive Web Design Fundamentals",
       "school": "Udacity",
       "dates": "2015",
-      "url": "https://www.udacity.com/course/viewer#!/c-ud893-nd/l-3581758575/m-3575058641",
-      "courseUrl": ["https://www.udacity.com"]
+      "url": ["https://www.udacity.com/course/viewer#!/c-ud893-nd/l-3581758575/m-3575058641"]
     },
     {
       "title": "Responsive Images",
       "school": "Udacity",
       "dates": "2015",
-      "url": "https://www.udacity.com/course/viewer#!/c-ud882-nd/l-3574748851",
-      "courseUrl": ["https://www.udacity.com"]
+      "url": ["https://www.udacity.com/course/viewer#!/c-ud882-nd/l-3574748851"]
     },
     {
       "title": "JavaScript Basics",
       "school": "Udacity",
       "dates": "2015",
-      "url": "https://www.udacity.com/course/viewer#!/c-ud804",
-      "courseUrl": ["https://www.udacity.com"]
+      "url": ["https://www.udacity.com/course/viewer#!/c-ud804"]
     }
   ]
 }
-
-//TODO activacte links for schools
 
 function displayEducation () {
   for (school in education.schools) {
@@ -142,13 +146,12 @@ function displayOnlineEducation () {
     $(".education-entry:last").append(formattedOnlineTitleOnlineSchool);
     var formattedOnlineDates = HTMLonlineDates.replace("%data%" , education.onlineCourses[onlineCourse].dates);
     $(".education-entry:last").append(formattedOnlineDates);
-    var formattedOnlineUrl = HTMLonlineURL.replace("%data%" , education.onlineCourses[onlineCourse].url);
-    $(".education-entry:last").append(formattedOnlineUrl);
   }
 }
 
 displayOnlineEducation();
 
+//Work information display
 var work = {
   "jobs" : [
     {
@@ -197,28 +200,23 @@ function displayWork () {
 
 displayWork ();
 
+//Project information display
 var projects = {
   "projects": [
     {
-      "title": "Project One",
+      "title": "Simple Resume",
       "dates": "2015",
       "description": "This is my HTML/CSS Portfolio",
-      "images": ["http://placehold.it/150x150", "http://placehold.it/150x150", "http://placehold.it/150x150"],
+      "images": ["images/Profile1foo2.png", "images/Profile2foo2.png", "images/Profile3foo2.png"],
       "url": ["https://github.com/AshleyED/profile"]
     },
     {
-      "title": "Project Two",
+      "title": "Interactive Resume",
       "dates": "2015",
       "description": "This is Project Two",
-      "images": ["http://placehold.it/150x150", "http://placehold.it/150x150", "http://placehold.it/150x150"],
-      "url": " " //TODO Project to be entered at a later date
-    },
-    {
-      "title": "Project Three",
-      "dates": "2015",
-      "description": "This is Project Three",
-      "images": ["http://placehold.it/150x150", "http://placehold.it/150x150", "http://placehold.it/150x150"],
-      "url": " " //TODO Project to be entered at a later date
+      //TODO ADD UPDATED IMAGES TO THIS!
+      "images": ["http://placehold.it/338x163", "http://placehold.it/338x163", "http://placehold.it/338x163"],
+      "url": ["https://github.com/AshleyED/JSprofile"]
     }
   ]
 }
@@ -248,4 +246,5 @@ function displayProjects () {
 
 displayProjects ();
 
+//Google map display
 $("#mapDiv").append(googleMap);

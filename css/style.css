@@ -11,22 +11,45 @@ h5,
 h6 {
   padding:0;
   margin:0;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Raleway', sans-serif;
+}
+
+.container {
+    position: fixed;
+    top: 0;
+    left: auto;
+    right: auto;
+    z-index: 100;
+    width: 100%;
+}
+
+.nav>li>a:hover,
+.nav>li>a:focus,
+.nav>li>a:active,
+.nav>li>a,
+.navbar {
+  display: -webkit-flex;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  color: #4a4a4a;
+  background-color: #83ffff;
 }
 
 .clear-fix {
   overflow: auto;
+  margin-top: 40px;
 }
 
 .education-entry,
 .work-entry,
 .project-entry {
-  padding: 0 5%;
+  padding: 0.75% 5%;
 }
 
 h1 {
   font-size: 40px;
-  color: #f5a623;
+  color: #83FFFF;
   line-height: 48px;
   display: inline;
 }
@@ -42,7 +65,7 @@ h2 {
 h3 {
   font-style: italic;
   font-size: 20px;
-  color: #000;
+  color: #999;
   line-height: 22px;
 }
 
@@ -57,10 +80,8 @@ h2,
 h3,
 h4,
 h5 {
-  padding:10px 5%;
-
+  padding: 10px 5%;
 }
-
 
 .date-text {
   font-style: italic;
@@ -86,8 +107,17 @@ p {
 }
 
 a {
-  color: #1199c3;
   text-decoration: none;
+  font-weight: bold;
+}
+
+.contact {
+  color: #4a4a4a;
+  display: inline;
+}
+
+.anchor {
+  color: #4a4a4a;
   margin-top: 10px;
   display: block;
 }
@@ -95,21 +125,21 @@ a {
 .welcome-message {
   font-style: italic;
   font-size: 18px;
-  color: #f3f3f3;
+  color: #000;
   line-height: 28px;
 }
 
 #skills-h3 {
-  color: #f5ae23;
+  color: #83FFFF;
   display: none;
 }
 
 .orange {
-  background-color: #f5ae23;
+  background-color: #83FFFF;
 }
 
 .orange-text {
-  color: #f5ae23;
+  color: #83FFFF;
 }
 
 .white-text {
@@ -127,7 +157,6 @@ a {
   background-color: #4a4a4a;
 }
 
-/* TODO: Replace with image later */
 #header {
   background-color: #484848;
 }
