@@ -159,7 +159,7 @@ var work = {
       "title": "Human Resources Manager",
       "dates": "2014-Current",
       "location": "Albany NY",
-      "description": "Acted as HR Manager and generalist in non-profit agency",
+      "description": "Acted as the sole Human Resources representative in a non-profit agency of 200 employees. Duties included completing generalist tasks, such as interviewing, hiring, employee relations, training, and terminations.",
       "url": ["http://www.alginc.org/"]
     },
     {
@@ -167,7 +167,7 @@ var work = {
       "title": "Family Services Coordinator",
       "dates": "2009-2013",
       "location": "Albany NY",
-      "description": "Acted as FSC in non-profit agency",
+      "description": "Acted as a Family Services Coordinator in a non-profit agency for individuals with developmental disabilities. Duties included supervising staff, ensuring full enrollment in all programs, and facilitating operations for all programs.",
       "url": ["http://www.alginc.org/"]
     },
     {
@@ -175,7 +175,7 @@ var work = {
       "title": "After-School Instructor",
       "dates": "2007-2009",
       "location": "Latham NY",
-      "description": "Acted as After-School Instructor in non-profit agency",
+      "description": "Acted as an After-School Instructor in a non-profit agency at a program for teenagers with developmental disabilities. Duties included planning/carrying out activities, ensuring the safety of the indivduals, and completing necessary billing paperwork.",
       "url": ["https://www.wildwood.edu/"]
     }
   ]
@@ -213,9 +213,8 @@ var projects = {
     {
       "title": "Interactive Resume",
       "dates": "2015",
-      "description": "This is Project Two",
-      //TODO ADD UPDATED IMAGES TO THIS!
-      "images": ["http://placehold.it/338x163", "http://placehold.it/338x163", "http://placehold.it/338x163"],
+      "description": "This is my JavaScript resume",
+      "images": ["images/Interactive1foo.png", "images/Interactive2foo.png", "images/Interactive3foo.png"],
       "url": ["https://github.com/AshleyED/JSprofile"]
     }
   ]
@@ -248,3 +247,10 @@ displayProjects ();
 
 //Google map display
 $("#mapDiv").append(googleMap);
+
+$(function(){
+  $("#nav a").click(function(e){
+    e.preventDefault();
+    $('html,body').scrollTo(this.hash,this.hash);
+  });
+});
