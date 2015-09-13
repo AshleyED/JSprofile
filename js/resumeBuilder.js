@@ -2,6 +2,7 @@
 var header = {
   "name" : "Ashley Davison",
   "role" : "Front-End Developer",
+  
   display: function() {
     var formattedheaderRole = HTMLheaderRole.replace("%data%" , header.role);
     $("#header").prepend(formattedheaderRole);
