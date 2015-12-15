@@ -1,3 +1,13 @@
+How to open this application:
+
+To load the application, simply open the index.html file with a browser, such as Chrome or Firefox. The application will begin to run automatically.
+
+What is this project?:
+This is a basic resume built with JavaScript, HTML, and CSS. 
+
+__________________________________________________________________________________________________________________________________
+Original Instructions:
+
 ## How do I complete this project?
 
 1. Go to the [Javascript Basics course](https://www.udacity.com/course/ud804) and select "View Course Materials."
